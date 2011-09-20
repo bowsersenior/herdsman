@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+
+require "optparse"
+require "pp"
+
+$:.unshift(File.join(File.dirname(__FILE__), "/../lib"))
+
+require 'herdsman'
+
+opts = {
+  :delimiter  => ' '
+}
+
+OptionParser.new do |o|
+  o.banner = "USAGE: #{$0} [options]"
+
+  o.on("-f", "--fields [FIELDS]", "Comma-separated list of field names e.g. -f IP,date") do |f|
+    opts[:fields] = f.split(',')
+  end
+
+  o.on("-s", "--source [LOG]", "Path to log file to parse") do |s|
+    opts[:source] = s
+  end
+
+  o.on("-h", "--help", "Show help documentation") do |h|
+    puts o
+    exit
+  end
+end.parse!
+
+puts "Parsing #{opts[:source]} for the following fields: #{opts[:fields]}"
+
+parsed = Herdsman::Parser.new(opts.delete(:source), opts)
+puts parsed.to_s

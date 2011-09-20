@@ -21,4 +21,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "aruba", "~> 0.4"
 
   s.add_runtime_dependency "mongo", "~> 1.3"
+  s.add_runtime_dependency "json", "~> 1.6.1"
 end
