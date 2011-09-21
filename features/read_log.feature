@@ -41,3 +41,7 @@ Feature: Read a log file, parse it and then store it in the DB
     ERROR
     Expected 4 fields, got 6
     """
+
+  # Scenario: import into MongoDB
+  # bin/herdsman --source tmp/some.log --fields a,b,c,d | mongoimport -d geo_compare -c test
+

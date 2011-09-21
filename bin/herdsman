@@ -28,6 +28,7 @@ OptionParser.new do |o|
   end
 end.parse!
 
+# TODO: suppress this output when piped or saved as file: it confuses mongoimport
 puts "Parsing #{opts[:source]} for the following fields: #{opts[:fields]}"
 
 begin

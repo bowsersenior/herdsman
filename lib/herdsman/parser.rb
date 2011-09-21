@@ -28,6 +28,7 @@ class Herdsman::Parser
     end
   end
 
+  # TODO: use generate instead of pretty_generate to pipe output straight into mongoimport
   def to_s
     self.to_array.map{ |hsh| JSON.pretty_generate(hsh) }.join("\n")
   end
