@@ -30,5 +30,10 @@ end.parse!
 
 puts "Parsing #{opts[:source]} for the following fields: #{opts[:fields]}"
 
-parsed = Herdsman::Parser.new(opts.delete(:source), opts)
-puts parsed.to_s
+begin
+  parsed = Herdsman::Parser.new(opts.delete(:source), opts)
+  puts parsed.to_s
+rescue Exception => e
+  puts "ERROR"
+  puts e.message
+end

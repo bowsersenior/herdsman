@@ -27,3 +27,17 @@ Feature: Read a log file, parse it and then store it in the DB
       "request": "GET /page2 HTTP/1.1"
     }
     """
+
+  Scenario: Raise an error if fields arguments don't match log file
+    When I run `herdsman read --source sample.log --fields http_x_forwarded_for,remote_addr,date`
+    Then the output should contain:
+    """
+    ERROR
+    Expected 4 fields, got 3
+    """
+    When I run `herdsman read --source sample.log --fields a,b,c,d,e,f`
+    Then the output should contain:
+    """
+    ERROR
+    Expected 4 fields, got 6
+    """
