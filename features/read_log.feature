@@ -20,4 +20,10 @@ Feature: Read a log file, parse it and then store it in the DB
       "date": "[01/Sept/2011:18:00:00 +0000]",
       "request": "GET /page1 HTTP/1.1"
     }
+    {
+      "http_x_forwarded_for": "8.8.8.8",
+      "remote_addr": "10.10.10.10",
+      "date": "[01/Sept/2011:18:00:30 +0000]",
+      "request": "GET /page2 HTTP/1.1"
+    }
     """
