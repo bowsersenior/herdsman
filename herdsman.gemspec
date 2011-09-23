@@ -19,7 +19,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec", "~> 2.6"
   s.add_development_dependency "cucumber", "~> 1.0"
   s.add_development_dependency "aruba", "~> 0.4"
+  s.add_development_dependency "vagrant", "~> 0.8.7"
 
   s.add_runtime_dependency "mongo", "~> 1.3"
-  s.add_runtime_dependency "json", "~> 1.6.1"
+  s.add_runtime_dependency "json", "~> 1.5.1"
 end
